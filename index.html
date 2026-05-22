@@ -383,6 +383,52 @@
             from { transform: scaleX(0); }
             to { transform: scaleX(1); }
         }
+
+        /* ================== RESPONSIVE SCROLLBAR & ORBIT UTILITIES ================== */
+        .scrollbar-none::-webkit-scrollbar {
+            display: none !important;
+            width: 0 !important;
+            height: 0 !important;
+        }
+        .scrollbar-none {
+            -ms-overflow-style: none !important;  /* IE and Edge */
+            scrollbar-width: none !important;  /* Firefox */
+            -webkit-overflow-scrolling: touch;  /* Smooth inertial scrolling on iOS */
+        }
+
+        /* Orbit Scaling Utilities */
+        .orbit-scaler {
+            transition: transform 0.3s ease-out;
+            transform-origin: center center;
+        }
+        .orbit-container-responsive {
+            height: 580px;
+            transition: height 0.3s ease-out;
+        }
+        @media (max-width: 639px) {
+            .orbit-scaler {
+                transform: scale(0.8);
+            }
+            .orbit-container-responsive {
+                height: 460px;
+            }
+        }
+        @media (max-width: 479px) {
+            .orbit-scaler {
+                transform: scale(0.65);
+            }
+            .orbit-container-responsive {
+                height: 380px;
+            }
+        }
+        @media (max-width: 374px) {
+            .orbit-scaler {
+                transform: scale(0.55);
+            }
+            .orbit-container-responsive {
+                height: 320px;
+            }
+        }
     </style>
 </head>
 <body class="min-h-screen w-full text-chalk selection:bg-cobalt-pure/30 overflow-x-hidden font-sans relative flex flex-col justify-start">
@@ -644,7 +690,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[250px] reveal-item opacity-0 translate-y-12 filter blur-[8px] transition-all duration-[1200ms] ease-out">
                 
                 <!-- Card 1: Torre de Controle (2x2) -->
-                <div class="md:col-span-2 md:row-span-2 flex flex-col justify-between p-6 bento-card rounded-2xl group relative">
+                <div class="col-span-1 md:col-span-2 row-span-2 md:row-span-2 flex flex-col justify-between p-6 bento-card rounded-2xl group relative">
                     <!-- Top info -->
                     <div class="flex items-center justify-between mb-4 z-10">
                         <div class="flex items-center gap-3">
@@ -1077,7 +1123,7 @@
             </div>
 
             <!-- View Chips Controller (Clickable Tabs) -->
-            <div class="flex flex-wrap items-center justify-center gap-3 mb-8 reveal-item opacity-0 translate-y-8 filter blur-[8px] transition-all duration-[1200ms] ease-out">
+            <div class="w-full flex overflow-x-auto whitespace-nowrap items-center justify-start md:justify-center gap-3 mb-8 pb-2 scrollbar-none reveal-item opacity-0 translate-y-8 filter blur-[8px] transition-all duration-[1200ms] ease-out">
                 <button id="chip-overview" class="ctrl-chip px-5 py-2.5 text-xs font-bold font-sans rounded-xl bg-cobalt-pure text-white border border-cobalt-pure/20 shadow-[0_0_20px_rgba(61,90,254,0.3)] transition-all duration-300 cursor-pointer" data-view="overview">
                     Visão Geral
                 </button>
@@ -1695,7 +1741,7 @@
             </div>
 
             <!-- Horizontal Navigation Tabs (6 Setores) -->
-            <div class="flex flex-wrap items-center justify-center gap-3 mb-12 reveal-item opacity-0 translate-y-8 filter blur-[8px] transition-all duration-[1200ms] ease-out">
+            <div class="w-full flex overflow-x-auto whitespace-nowrap items-center justify-start md:justify-center gap-3 mb-12 pb-2 scrollbar-none reveal-item opacity-0 translate-y-8 filter blur-[8px] transition-all duration-[1200ms] ease-out">
                 <button id="tab-varejo" class="usecase-tab px-5 py-2.5 text-xs font-bold font-sans rounded-xl bg-cobalt-pure text-white border border-cobalt-pure/20 shadow-[0_0_20px_rgba(61,90,254,0.3)] transition-all duration-300 cursor-pointer" data-sector="varejo">
                     Varejo
                 </button>
@@ -2202,9 +2248,12 @@
             </div>
 
             <!-- Dynamic Orbital Grid Container -->
-            <div class="relative w-full max-w-[700px] h-[580px] mx-auto mb-16 flex items-center justify-center overflow-hidden reveal-item opacity-0 translate-y-8 filter blur-[8px] transition-all duration-[1200ms] ease-out">
+            <div class="relative w-full max-w-[700px] orbit-container-responsive mx-auto mb-16 flex items-center justify-center overflow-hidden reveal-item opacity-0 translate-y-8 filter blur-[8px] transition-all duration-[1200ms] ease-out">
                 
-                <!-- Central Rota Hub (Large Cobalt Logo) -->
+                <!-- Orbit Scaler for responsive scale control -->
+                <div class="orbit-scaler absolute w-[500px] h-[500px] flex items-center justify-center">
+                    
+                    <!-- Central Rota Hub (Large Cobalt Logo) -->
                 <div class="relative z-30 w-24 h-24 rounded-full bg-cobalt-pure flex items-center justify-center shadow-[0_0_50px_rgba(61,90,254,0.6)] border-2 border-white/20 select-none">
                     <span class="font-display font-black text-white text-base tracking-widest">ROTA</span>
                     <!-- Pulsing shockwaves behind the logo -->
@@ -2389,6 +2438,7 @@
                     </div>
                 </div>
 
+                </div> <!-- End Orbit Scaler -->
             </div> <!-- End Orbital Container -->
 
 

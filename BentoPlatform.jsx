@@ -181,7 +181,7 @@ export default function BentoPlatform() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="md:col-span-2 md:row-span-2 flex flex-col justify-between p-6 rounded-2xl bg-[#0F1419] border border-[#8A92A0]/10 hover:border-[#3D5AFE]/30 transition-all duration-500 relative group overflow-hidden shadow-xl"
+            className="col-span-1 md:col-span-2 row-span-2 md:row-span-2 flex flex-col justify-between p-6 rounded-2xl bg-[#0F1419] border border-[#8A92A0]/10 hover:border-[#3D5AFE]/30 transition-all duration-500 relative group overflow-hidden shadow-xl"
           >
             {/* Background cobalt glow effect on card hover */}
             <div className="absolute -inset-px bg-gradient-to-br from-[#3D5AFE]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none z-0" />

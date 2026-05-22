@@ -54,6 +54,42 @@ export default function IntegrationsOrbit() {
       id="section-six"
       className="w-full bg-transparent text-chalk pt-[100px] pb-[100px] relative z-10 overflow-x-hidden shrink-0"
     >
+      {/* Self-contained responsive style block for the orbital grid */}
+      <style dangerouslySetInnerHTML={{ __html: `
+        .orbit-scaler {
+          transition: transform 0.3s ease-out;
+          transform-origin: center center;
+        }
+        .orbit-container-responsive {
+          height: 580px;
+          transition: height 0.3s ease-out;
+        }
+        @media (max-width: 639px) {
+          .orbit-scaler {
+            transform: scale(0.8);
+          }
+          .orbit-container-responsive {
+            height: 460px;
+          }
+        }
+        @media (max-width: 479px) {
+          .orbit-scaler {
+            transform: scale(0.65);
+          }
+          .orbit-container-responsive {
+            height: 380px;
+          }
+        }
+        @media (max-width: 374px) {
+          .orbit-scaler {
+            transform: scale(0.55);
+          }
+          .orbit-container-responsive {
+            height: 320px;
+          }
+        }
+      `}} />
+
       <div className="w-full max-w-[1200px] mx-auto px-6 flex flex-col justify-start">
         
         {/* Section Header */}
@@ -102,9 +138,12 @@ export default function IntegrationsOrbit() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full max-w-[700px] h-[580px] mx-auto mb-16 flex items-center justify-center overflow-hidden"
+          className="relative w-full max-w-[700px] orbit-container-responsive mx-auto mb-16 flex items-center justify-center overflow-hidden"
         >
-          {/* Central Rota Hub (Large Cobalt Logo) */}
+          {/* Orbit Scaler for responsive scale control */}
+          <div className="orbit-scaler absolute w-[500px] h-[500px] flex items-center justify-center">
+            
+            {/* Central Rota Hub (Large Cobalt Logo) */}
           <div className="relative z-30 w-24 h-24 rounded-full bg-cobalt-pure flex items-center justify-center shadow-[0_0_50px_rgba(61,90,254,0.6)] border-2 border-white/20 select-none">
             <span className="font-display font-black text-white text-base tracking-widest">ROTA</span>
             {/* Pulsing shockwaves behind the logo */}
@@ -174,6 +213,7 @@ export default function IntegrationsOrbit() {
               </div>
             ))}
           </div>
+          </div> {/* End Orbit Scaler */}
         </motion.div>
 
 

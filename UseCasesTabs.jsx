@@ -245,7 +245,7 @@ export default function UseCasesTabs() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="flex flex-wrap items-center justify-center gap-3 mb-12"
+          className="w-full flex overflow-x-auto whitespace-nowrap items-center justify-start md:justify-center gap-3 mb-12 pb-2 scrollbar-none"
         >
           {USE_CASES.map((item) => {
             const isActive = activeTab === item.id;

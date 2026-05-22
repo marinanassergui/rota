@@ -234,7 +234,7 @@ export default function ControlTowerDashboard() {
         </div>
 
         {/* View Chips Controller */}
-        <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
+        <div className="w-full flex overflow-x-auto whitespace-nowrap items-center justify-start md:justify-center gap-3 mb-8 pb-2 scrollbar-none">
           {[
             { id: "overview", label: "Visão Geral" },
             { id: "transit", label: "Em Trânsito" },
