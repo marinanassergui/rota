@@ -497,7 +497,7 @@
                 <!-- Operations Map Container (Fluid aspect ratio scaling, adapting perfectly to any viewport height) -->
                 <div id="map-dashboard-container" class="w-full max-w-[1150px] aspect-[900/680] max-h-[calc(100vh-140px)] md:max-h-[calc(100vh-160px)] lg:max-h-[calc(100vh-180px)] flex flex-col relative select-none mx-auto">
                               <!-- SVG Rendering Canvas -->
-                    <svg id="brazil-svg-canvas" class="w-full h-full absolute inset-0 z-10 transition-all duration-300 scale-[1.2] md:scale-100 origin-center" viewBox="0 0 900 680" preserveAspectRatio="xMidYMid meet">
+                    <svg id="brazil-svg-canvas" class="w-full h-full absolute inset-0 z-10 transition-all duration-300" viewBox="0 0 900 680" preserveAspectRatio="xMidYMid meet">
                         <!-- Definitions for filters and gradients -->
                         <defs>
                             <!-- Glow filters -->
@@ -527,7 +527,7 @@
                     <!-- ================== OVERLAY UI ELEMENTS ================== -->
                     
                     <!-- BOTTOM-RIGHT FLOATING LEGEND (Positioned completely outside the map in the corner to prevent overlapping) -->
-                    <div class="hidden sm:flex absolute bottom-4 right-4 z-20 bg-asphalt-base/75 border border-asphalt-border backdrop-blur-md rounded-xl p-3 flex flex-col gap-2.5 text-[11px] text-steam pointer-events-auto shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
+                    <div class="absolute bottom-4 left-4 sm:left-auto sm:right-4 z-20 bg-asphalt-base/75 border border-asphalt-border backdrop-blur-md rounded-xl p-3 flex flex-col gap-2.5 text-[11px] text-steam pointer-events-auto shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
                         <div class="flex items-center gap-2">
                             <span class="w-2.5 h-2.5 rounded-full bg-cobalt-pure shadow-[0_0_6px_rgba(61,90,254,0.6)]"></span>
                             <span>Veículo ativo</span>
@@ -2978,9 +2978,10 @@
 
             // D3 Projection Configuration
             // We use geoMercator centered on Brazil's coordinates to keep it balanced and fully visible without clipping
+            const isMobile = window.innerWidth < 768;
             const projection = d3.geoMercator()
-                .center([-61.2, -15.13])
-                .scale(900)
+                .center([isMobile ? -54.0 : -61.2, -15.13])
+                .scale(isMobile ? 1000 : 900)
                 .translate([width / 2, height / 2]);
 
             const pathGenerator = d3.geoPath().projection(projection);

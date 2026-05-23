@@ -84,6 +84,17 @@ const ROUTES = [
 export default function BrazilMapDashboard() {
   const [hoveredItem, setHoveredItem] = useState(null); // { title, type, details, x, y }
   const [geojson, setGeojson] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Monitor viewport size to adjust projection center and scale responsively
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // Fetch geojson on mount to perform point-in-polygon verification
   useEffect(() => {
@@ -117,12 +128,12 @@ export default function BrazilMapDashboard() {
         <ComposableMap
           projection="geoMercator"
           projectionConfig={{
-            scale: 900,
-            center: [-61.2, -15.13]
+            scale: isMobile ? 1000 : 900,
+            center: [isMobile ? -54.0 : -61.2, -15.13]
           }}
           width={900}
           height={680}
-          className="w-full h-full transform transition-transform duration-300 scale-[1.2] md:scale-100 origin-center"
+          className="w-full h-full transform transition-transform duration-300"
         >
           <Geographies geography={BRAZIL_GEOJSON_URL}>
             {({ geographies }) =>
@@ -154,7 +165,7 @@ export default function BrazilMapDashboard() {
       {/* ==================== CARD OVERLAYS ==================== */}
 
       {/* Bottom-Right Legend (Positioned completely outside the map in the corner to prevent overlapping) */}
-      <div className="hidden sm:flex absolute bottom-4 right-4 z-20 bg-[#1A1F26]/75 border border-[#2A3140] backdrop-blur-md rounded-xl p-3 flex flex-col gap-2.5 text-[11px] text-[#8A92A0] shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
+      <div className="absolute bottom-4 left-4 sm:left-auto sm:right-4 z-20 bg-[#1A1F26]/75 border border-[#2A3140] backdrop-blur-md rounded-xl p-3 flex flex-col gap-2.5 text-[11px] text-[#8A92A0] shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
         <div className="flex items-center gap-2">
           <span className="w-2.5 h-2.5 rounded-full bg-[#3D5AFE] shadow-[0_0_6px_rgba(61,90,254,0.6)]"></span>
           <span>Veículo ativo</span>
