@@ -122,7 +122,7 @@ export default function BrazilMapDashboard() {
           }}
           width={900}
           height={680}
-          className="w-full h-full"
+          className="w-full h-full transform transition-transform duration-300 scale-[1.2] md:scale-100 origin-center"
         >
           <Geographies geography={BRAZIL_GEOJSON_URL}>
             {({ geographies }) =>
@@ -154,7 +154,7 @@ export default function BrazilMapDashboard() {
       {/* ==================== CARD OVERLAYS ==================== */}
 
       {/* Bottom-Right Legend (Positioned completely outside the map in the corner to prevent overlapping) */}
-      <div className="absolute bottom-4 right-4 z-20 bg-[#1A1F26]/75 border border-[#2A3140] backdrop-blur-md rounded-xl p-3 flex flex-col gap-2.5 text-[11px] text-[#8A92A0] shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
+      <div className="hidden sm:flex absolute bottom-4 right-4 z-20 bg-[#1A1F26]/75 border border-[#2A3140] backdrop-blur-md rounded-xl p-3 flex flex-col gap-2.5 text-[11px] text-[#8A92A0] shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
         <div className="flex items-center gap-2">
           <span className="w-2.5 h-2.5 rounded-full bg-[#3D5AFE] shadow-[0_0_6px_rgba(61,90,254,0.6)]"></span>
           <span>Veículo ativo</span>

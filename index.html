@@ -496,9 +496,8 @@
 
                 <!-- Operations Map Container (Fluid aspect ratio scaling, adapting perfectly to any viewport height) -->
                 <div id="map-dashboard-container" class="w-full max-w-[1150px] aspect-[900/680] max-h-[calc(100vh-140px)] md:max-h-[calc(100vh-160px)] lg:max-h-[calc(100vh-180px)] flex flex-col relative select-none">
-                    
-                    <!-- SVG Rendering Canvas -->
-                    <svg id="brazil-svg-canvas" class="w-full h-full absolute inset-0 z-10" viewBox="0 0 900 680" preserveAspectRatio="xMidYMid meet">
+                              <!-- SVG Rendering Canvas -->
+                    <svg id="brazil-svg-canvas" class="w-full h-full absolute inset-0 z-10 transition-all duration-300 scale-[1.2] md:scale-100 origin-center" viewBox="0 0 900 680" preserveAspectRatio="xMidYMid meet">
                         <!-- Definitions for filters and gradients -->
                         <defs>
                             <!-- Glow filters -->
@@ -517,18 +516,18 @@
                                 <stop offset="100%" stop-color="#FFB020" stop-opacity="0.8" />
                             </linearGradient>
                         </defs>
-
+ 
                         <!-- Base map elements rendered programmatically -->
                         <g id="states-group"></g>
                         <g id="routes-group"></g>
                         <g id="vehicles-group"></g>
                         <g id="hubs-group"></g>
                     </svg>
-
+ 
                     <!-- ================== OVERLAY UI ELEMENTS ================== -->
                     
                     <!-- BOTTOM-RIGHT FLOATING LEGEND (Positioned completely outside the map in the corner to prevent overlapping) -->
-                    <div class="absolute bottom-4 right-4 z-20 bg-asphalt-base/75 border border-asphalt-border backdrop-blur-md rounded-xl p-3 flex flex-col gap-2.5 text-[11px] text-steam pointer-events-auto shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
+                    <div class="hidden sm:flex absolute bottom-4 right-4 z-20 bg-asphalt-base/75 border border-asphalt-border backdrop-blur-md rounded-xl p-3 flex flex-col gap-2.5 text-[11px] text-steam pointer-events-auto shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
                         <div class="flex items-center gap-2">
                             <span class="w-2.5 h-2.5 rounded-full bg-cobalt-pure shadow-[0_0_6px_rgba(61,90,254,0.6)]"></span>
                             <span>Veículo ativo</span>
