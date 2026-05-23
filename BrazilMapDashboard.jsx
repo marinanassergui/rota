@@ -110,7 +110,7 @@ export default function BrazilMapDashboard() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       id="map-container"
-      className="w-full max-w-[1150px] aspect-[900/680] max-h-[calc(100vh-140px)] md:max-h-[calc(100vh-160px)] lg:max-h-[calc(100vh-180px)] flex flex-col relative select-none"
+      className="w-full max-w-[1150px] aspect-[900/680] max-h-[calc(100vh-140px)] md:max-h-[calc(100vh-160px)] lg:max-h-[calc(100vh-180px)] flex flex-col relative select-none mx-auto mt-10 md:mt-0"
     >
       {/* SVG Canvas and geographic lines */}
       <div className="w-full h-full absolute inset-0 z-10">
