@@ -288,37 +288,37 @@ export default function ControlTowerDashboard() {
                 >
                   {/* KPIs Section */}
                   <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                    <div className="bg-[#1A1F26]/40 border border-[#8A92A0]/10 p-4 rounded-xl flex items-center justify-between">
+                    <div className="bg-[#1A1F26]/40 border border-[#8A92A0]/10 p-4 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
                       <div>
                         <p className="text-[10px] text-steam uppercase tracking-wider font-semibold">Frota Total</p>
                         <h4 className="text-xl font-bold font-display text-white mt-1">1.420</h4>
                       </div>
-                      <span className="text-[10px] font-bold text-emerald-pure px-2 py-0.5 rounded bg-emerald-pure/10 border border-emerald-pure/20">
+                      <span className="text-[10px] font-bold text-emerald-pure px-2 py-0.5 rounded bg-emerald-pure/10 border border-emerald-pure/20 whitespace-nowrap">
                         98.4% ATIVA
                       </span>
                     </div>
-                    <div className="bg-[#1A1F26]/40 border border-[#8A92A0]/10 p-4 rounded-xl flex items-center justify-between">
+                    <div className="bg-[#1A1F26]/40 border border-[#8A92A0]/10 p-4 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
                       <div>
                         <p className="text-[10px] text-steam uppercase tracking-wider font-semibold">Em Trânsito</p>
                         <h4 className="text-xl font-bold font-display text-white mt-1">348</h4>
                       </div>
-                      <span className="text-[10px] text-steam font-mono font-medium">34 CORREDORES</span>
+                      <span className="text-[10px] text-steam font-mono font-medium whitespace-nowrap">34 CORREDORES</span>
                     </div>
-                    <div className="bg-[#1A1F26]/40 border border-[#8A92A0]/10 p-4 rounded-xl flex items-center justify-between">
+                    <div className="bg-[#1A1F26]/40 border border-[#8A92A0]/10 p-4 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
                       <div>
                         <p className="text-[10px] text-steam uppercase tracking-wider font-semibold">Exceções</p>
                         <h4 className="text-xl font-bold font-display text-amber-pure mt-1">8</h4>
                       </div>
-                      <span className="text-[10px] font-bold text-amber-pure px-2 py-0.5 rounded bg-amber-pure/10 border border-amber-pure/20 animate-pulse">
+                      <span className="text-[10px] font-bold text-amber-pure px-2 py-0.5 rounded bg-amber-pure/10 border border-amber-pure/20 animate-pulse whitespace-nowrap">
                         0.6% CRÍTICO
                       </span>
                     </div>
-                    <div className="bg-[#1A1F26]/40 border border-[#8A92A0]/10 p-4 rounded-xl flex items-center justify-between">
+                    <div className="bg-[#1A1F26]/40 border border-[#8A92A0]/10 p-4 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
                       <div>
                         <p className="text-[10px] text-steam uppercase tracking-wider font-semibold">SLA Real</p>
                         <h4 className="text-xl font-bold font-display text-emerald-pure mt-1">98.6%</h4>
                       </div>
-                      <span className="text-[10px] font-bold text-emerald-pure">META 95.0%</span>
+                      <span className="text-[10px] font-bold text-emerald-pure whitespace-nowrap">META 95.0%</span>
                     </div>
                   </div>
 
